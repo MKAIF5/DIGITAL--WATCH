@@ -1,3 +1,4 @@
+//TIME
 let hrs = document.getElementById("hrs");
 let min = document.getElementById("min");
 let sec = document.getElementById("sec");
@@ -12,12 +13,19 @@ setInterval(() => {
   sec.innerHTML =
     (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
 }, 1000);
+// AM PM AND HRS DIGIT CHANGE
+let am = document.getElementById("am");
 
+if (hrs == 0) {
+  hrs = 12;
+}
+
+if (hrs > 12) {
+  hrs = hrs - 12;
+  am = "PM";
+}
+//MONTH
 let Month = document.getElementById("mon");
 
 let a = new Date();
 Month.innerHTML = a.toDateString();
-
-if(hrs >=12){
-    hrs =  -12
-}
